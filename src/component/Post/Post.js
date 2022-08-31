@@ -9,8 +9,20 @@ const Post = (props) => {
         alt="..."
       />
       <div className="card-body">
-        <p className="card-text">{props.title}</p>
-        <p className="card-text">{props.desc}</p>
+        <p className="card-text fw-bold">{props.data.title}</p>
+        <p className="card-text">{props.data.body}</p>
+        <button
+          className="btn btn-success me-4"
+          onClick={() => props.update(props.data)}
+        >
+          Update
+        </button>
+        <button
+          className="btn btn-danger"
+          onClick={() => props.remove(props.data.id)}
+        >
+          Remove
+        </button>
       </div>
     </div>
   );

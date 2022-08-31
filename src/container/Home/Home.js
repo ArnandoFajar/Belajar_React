@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BlogPost from "../BlogPost/BlogPost";
+import "./Home.css";
 // import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
 // import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
 // import Product from "../Product/Product";

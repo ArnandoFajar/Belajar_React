@@ -1,0 +1,8 @@
+body {
+  background-color: #E1FFEE;
+}
+
+.border {
+    border: 2px solid #FFB200 !important;
+  padding: 10px;
+}
