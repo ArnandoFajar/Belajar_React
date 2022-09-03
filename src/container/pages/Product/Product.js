@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import CardProduct from '../CardProduct/CardProduct'
+import CardProduct from './CardProduct/CardProduct'
 
 export class Product extends Component {
 
@@ -16,6 +16,8 @@ export class Product extends Component {
   render() {
     return (
         <Fragment>
+            <h1>Halaman Product</h1>
+            <hr/>
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item"><a href="#">Main</a></li>

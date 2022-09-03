@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component, Fragment } from "react";
-import Post from "../../component/Post/Post";
+import Post from "../../../component/Post/Post";
 
 export class BlogPost extends Component {
   state = {
@@ -117,6 +117,8 @@ export class BlogPost extends Component {
   render() {
     return (
       <Fragment>
+        <h1>Halaman BlogPost</h1>
+        <hr />
         <p>BlogPost</p>
         <div className="border">
           <div className="mb-3">

@@ -1,57 +1,35 @@
-import React, { Component } from "react";
-import BlogPost from "../BlogPost/BlogPost";
+import React, { Component, Fragment } from "react";
+import BlogPost from "../pages/BlogPost/BlogPost";
 import "./Home.css";
-// import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
-// import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
-// import Product from "../Product/Product";
+import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
+import LifeCycleComp from "../pages/LifeCycleComp/LifeCycleComp";
+import Product from "../pages/Product/Product";
+
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import YoutubeComPage from "../pages/YoutubeComp/YoutubeComp";
 
 class Home extends Component {
-  state = {
-    showComponent: true,
-  };
-
-  //   componentDidMount() {
-  //     setTimeout(() => {
-  //       this.setState({
-  //         showComponent: false,
-  //       });
-  //     }, 15000);
-  //   }
-
   render() {
     return (
-      <div>
-        {/* <h2>Youtube Component</h2>
-                <hr/>
-                <YoutubeComp 
-                    time="7.12" 
-                    title="Ini Judul"
-                    desc="102 ditonton. 10 hari yang lalu"
-                />
-                <YoutubeComp 
-                    time="2.23" 
-                    title="Ini Judul 2"
-                    desc="200 ditonton. 19 hari yang lalu"
-                />
-                <YoutubeComp 
-                    time="5.23" 
-                    title="Ini Judul 3"
-                    desc="500 ditonton. 20 hari yang lalu"
-                />
-                <YoutubeComp/> */}
-        {/* <p>Counter</p>
-                <hr/>
-                <Product/> */}
-
-        {/* Life cycyle component
-        <p>LifeCycle Component</p>
-        <hr />
-
-        {this.state.showComponent ? <LifeCycleComp /> : null} */}
-
-        {/* API  */}
-        <BlogPost/>
-      </div>
+      <Router>
+        <Fragment>
+          <div>
+            <h2>Component Global</h2>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+              <Link to="/">BlogPost</Link>
+              <Link to="/product">Product</Link>
+              <Link to="/life">LifeCycle</Link>
+              <Link to="/youtube">Youtube</Link>
+            </nav>
+          </div>
+          <Routes>
+            <Route exact path="/" element={<BlogPost />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/life" element={<LifeCycleComp />} />
+            <Route path="/youtube" element={<YoutubeComPage />} />
+          </Routes>
+        </Fragment>
+      </Router>
     );
   }
 }
