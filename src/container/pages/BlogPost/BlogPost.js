@@ -22,9 +22,7 @@ export class BlogPost extends Component {
     axios
       .get("http://localhost:3004/posts?_sort=id&_order=desc")
       .then((res) => {
-        this.setState({
-          post: res.data,
-        });
+        this.setState({ post: res.data });
       });
   };
 
@@ -84,22 +82,19 @@ export class BlogPost extends Component {
 
   handleUpdate = (data) => {
     console.log(data);
-    this.setState({
-      formBlogPost: data,
-      isUpdate: true,
-    });
+    this.setState({ formBlogPost: data, isUpdate: true });
   };
 
   handleFormChange = (event) => {
-    let formBlogPostNew = { ...this.state.formBlogPost };
+    let formBlogPostNew = {
+      ...this.state.formBlogPost,
+    };
     let timeStamp = new Date().getTime();
     if (!this.state.isUpdate) {
       formBlogPostNew["id"] = timeStamp;
     }
     formBlogPostNew[event.target.name] = event.target.value;
-    this.setState({
-      formBlogPost: formBlogPostNew,
-    });
+    this.setState({ formBlogPost: formBlogPostNew });
   };
 
   handleSubmit = () => {
@@ -108,6 +103,11 @@ export class BlogPost extends Component {
     } else {
       this.postDataToAPI();
     }
+  };
+
+  handleDetail = (id) => {
+    this.props.history.push(`detail-post/${id}`);
+    console.log("test", id);
   };
 
   componentDidMount() {
@@ -157,6 +157,7 @@ export class BlogPost extends Component {
               data={post}
               remove={this.handleRemove}
               update={this.handleUpdate}
+              goDetail={this.handleDetail}
             />
           );
         })}

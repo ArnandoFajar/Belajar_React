@@ -5,7 +5,7 @@ class YoutubeComPage extends Component {
   render() {
     return (
       <Fragment>
-        <p>Youtube Component</p>
+        <h1>Youtube Component</h1>
         <hr />
         <YoutubeComp
           time="7.12"
